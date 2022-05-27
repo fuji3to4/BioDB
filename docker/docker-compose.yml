@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  mysql:
+    build: ./mysql
+    container_name: docker-mysql
+    #user: user
+    volumes:
+      - mysqldb:/var/lib/mysql       #Databaseの永続化のためdocker volumeと繋げる
+      - ../SQL:/home/user/SQL                  #SQLフォルダーと/SQLを繋げる。/SQLはmysql/Dockerfileで作成
+      - ../mysql_log:/var/log/mysql  #log出力用※これを繋げないと非ルートだとpermission deniedになる
+    restart: always
+    #environment:
+    #  MYSQL_ROOT_PASSWORD: password
+    #  TZ: Asia/Tokyo
+
+  php:
+    build: ./php
+    container_name: docker-php
+    #user: user
+    ports:
+      - '80:80'
+    volumes:
+    #  - ../public_html:/var/www/html #public_htmlフォルダと/var/www/htmlを繋げる
+      - ../public_html:/home/user/public_html
+    restart: always
+    #environment:
+    #  TZ: Asia/Tokyo
+    depends_on:
+      - mysql
+
+volumes:
+  mysqldb:
+
+

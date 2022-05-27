@@ -1,0 +1,4 @@
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL ON *.* TO 'user'@'localhost';
+GRANT ALL ON *.* TO 'user'@'%' IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;
