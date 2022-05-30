@@ -1,4 +1,4 @@
-FROM mysql:5.7
+FROM mysql:8.0
 
 ENV MYSQL_ROOT_PASSWORD=password
 ENV TZ=Asia/Tokyo
@@ -21,7 +21,7 @@ RUN chmod 644 /etc/mysql/conf.d/mycustom.cnf
 COPY ./init.sql /docker-entrypoint-initdb.d/init.sql 
 
 #log出力を設定すると起動時にエラーで落ちるための対策。
-#→上手くいかない。docker composeでdocker volumeと繋げるとroot owner & 777になりいける・・
+#docker composeでdocker volumeと繋げるだけでもroot owner & 777になりいける？
 RUN rm -rf /var/log/mysql \
     && mkdir /var/log/mysql 
 RUN chmod 777 /var/log/mysql
@@ -34,3 +34,5 @@ RUN groupadd $GNAME \
 
 WORKDIR /home/$UNAME/SQL
 USER $UNAME
+
+#WORKDIR /SQL

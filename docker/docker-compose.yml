@@ -8,7 +8,7 @@ services:
     volumes:
       - mysqldb:/var/lib/mysql       #Databaseの永続化のためdocker volumeと繋げる
       - ../SQL:/home/user/SQL                  #SQLフォルダーと/SQLを繋げる。/SQLはmysql/Dockerfileで作成
-      - ../mysql_log:/var/log/mysql  #log出力用※これを繋げないと非ルートだとpermission deniedになる
+    #  - ../mysql_log:/var/log/mysql  #log出力用
     restart: always
     #environment:
     #  MYSQL_ROOT_PASSWORD: password
