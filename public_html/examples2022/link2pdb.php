@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 
+<head>
+<meta charset="UTF-8">
+<title>PDB Info.</title>
+</head>
+<body>
+
 <?php
 header('Content-Type:text/html; charset=UTF-8');
 require('login.php');

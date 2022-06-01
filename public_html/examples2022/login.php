@@ -2,8 +2,8 @@
 
 $db_user = "user";
 $db_pass = "password";
-$db_host = "docker-mysql"; #for Dokcer
 #$db_host = "localhost"; #for VirtualBox
+$db_host = "docker-mysql"; #for Dokcer
 $db_name = "demo";
 
 $dsn="mysql:host={$db_host};dbname={$db_name};charset=utf8";

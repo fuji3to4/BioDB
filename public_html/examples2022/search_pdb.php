@@ -2,6 +2,7 @@
 <html lang="ja">
 
 <head>
+<meta charset="UTF-8">
 <title>result</title>
 </head>
 <body>
@@ -12,8 +13,8 @@ header('Content-Type:text/html; charset=UTF-8');//文字化け防止
 //データベースへの接続情報の設定
 $db_user = "user";
 $db_pass = "password";
-$db_host = "docker-mysql"; #For Docker
 #$db_host = "localhost"; #For virtualBox
+$db_host = "docker-mysql"; #For Docker
 $db_name = "demo";
 
 $dsn="mysql:host={$db_host};dbname={$db_name};charset=utf8";
