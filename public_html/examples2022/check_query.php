@@ -74,7 +74,7 @@ query:
 ?>
 
 
-<form action="./search_SQL.php" method="POST"> 
+<form action="./check_query.php" method="POST"> 
 
 <p>DBname:</br>
       <input type="text" name="dbname" value="<?=$db_name?>" size="10">
