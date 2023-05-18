@@ -11,6 +11,15 @@ docker compose up -d
 ```
 
 ## Usage
+### 動作確認
+```
+docker ps
+CONTAINER ID   IMAGE          COMMAND                   CREATED          STATUS          PORTS                 NAMES
+7577ec77e36e   docker-php     "docker-php-entrypoi…"   32 minutes ago   Up 32 minutes   0.0.0.0:80->80/tcp    docker-php
+78a682eabd52   docker-mysql   "docker-entrypoint.s…"   32 minutes ago   Up 32 minutes   3306/tcp, 33060/tcp   docker-mysql
+```
+
+### PHP
 ./BioDB/public_html/はdocker-phpの/home/user/public_html/と同期しています。
 その中に作成したhtmlやphpに以下のようなURLによりアクセスできます。
 http://localhost/~user/sample.php
@@ -18,6 +27,7 @@ http://localhost/~user/sample.php
 ![image](https://github.com/fuji3to4/BioDB/assets/72539480/bb2f6935-a911-4499-8d68-999ded20f04c)
 
 
+### MySQL
 ./BioDB/SQL/はdocker-mysqlの/home/user/SQLと同期しています。
 ```
 docker exec -it docker-mysql bash
