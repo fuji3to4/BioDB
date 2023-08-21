@@ -1,5 +1,7 @@
 version: '3'
 
+name: biodb
+
 services:
   mysql:
     build: ./mysql
