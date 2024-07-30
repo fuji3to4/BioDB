@@ -1,4 +1,4 @@
-FROM mysql:8.0-debian
+FROM mysql:8.0.36-debian
 
 ENV MYSQL_ROOT_PASSWORD=password
 ENV TZ=Asia/Tokyo

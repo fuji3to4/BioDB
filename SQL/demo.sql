@@ -4,26 +4,26 @@ create database demo; #demoという名前のデータベースを作成する
 use demo; #demoデータベースを使用する
 
 #テーブルを作成する
-create table `PDB`(`pdbID` char(4) not null,
-				`method` char(10) not null,
-				`resolution` float,
-				`chain` char(10) not null,
-                `positions` char(10) not null,
-				`deposited` date not null,     #date型という日付用の型。YYYY-MM-DD
-                `class` char(15),
-                `url` text,                    #長い文字列用にtext型(65535文字)がある。管理上・性能上の理由で多用は控えるべき。
+create table PDB(pdbID char(4) not null,
+				method char(10) not null,
+				resolution float,
+				chain char(10) not null,
+                positions char(10) not null,
+				deposited date not null,     #date型という日付用の型。YYYY-MM-DD
+                class char(15),
+                url text,                    #長い文字列用にtext型(65535文字)がある。管理上・性能上の理由で多用は控えるべき。
 		 		primary key(PDBID));           #主キー(primary key)の設定
 
 
-create table `Protein`(`proteinID` int not null auto_increment, #auto_increment（自動番号付け）属性を加えている。
-	            	`name` char(50) not null,
-		    		`organism` char(30) not null,
-		    		`len` int not null,
-					`fav` int not null,
+create table Protein(proteinID int not null auto_increment, #auto_increment（自動番号付け）属性を加えている。
+	            	name char(50) not null,
+		    		organism char(30) not null,
+		    		len int not null,
+					fav int not null,
 		    		primary key(proteinID));
 
-create table `PDB2Protein`(`pdbID` char(4) not null,
-                         `proteinID` int not null,
+create table PDB2Protein(pdbID char(4) not null,
+                         proteinID int not null,
 						primary key(PDBID,proteinID)); #主キーが複合キーの場合キーとなる属性を並べる
 
 
