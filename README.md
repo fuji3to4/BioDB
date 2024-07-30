@@ -1,6 +1,6 @@
 # BioDB
 
-バイオデータベース演習用DockerによるLAMP環境(mysql8.0-debian, php8.1-apache)
+バイオデータベース演習用DockerによるLAMP環境(mysql8.0-debian, php8.3.7-apache)
 
 ※演習用に便宜上セキュリティを甘く構築しているので一般用途には向きません。
 
