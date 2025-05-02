@@ -1,17 +1,14 @@
-FROM mysql:8.0.36-debian
+FROM mysql:9.3.0
 
-ENV MYSQL_ROOT_PASSWORD=password
-ENV TZ=Asia/Tokyo
+# 日本語環境構築
+RUN microdnf update -y \
+    && microdnf install -y glibc-langpack-ja \
+    && microdnf clean all
 
-#日本語環境構築
-RUN apt-get update \
-    && apt-get install -y locales \
-    && sed -i -e 's/# \(ja_JP.UTF-8\)/\1/' /etc/locale.gen \
-    && locale-gen \
-    && update-locale LANG=ja_JP.UTF-8
-
-ENV LC_ALL=ja_JP.UTF-8
+# 環境変数の設定
 ENV LANG=ja_JP.UTF-8
+ENV LANGUAGE=ja_JP:ja
+ENV LC_ALL=ja_JP.UTF-8
 
 #mysqlのカスタム設定(windowsだと読み込み専用ファイルにしないといけないための措置)
 COPY ./mycustom.cnf /etc/mysql/conf.d/mycustom.cnf
@@ -34,3 +31,5 @@ RUN groupadd $GNAME \
 WORKDIR /home/$UNAME/SQL
 USER $UNAME
 
+# 設定を確実に反映させるためのコマンド
+CMD ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
