@@ -11,8 +11,8 @@ COPY package*.json /app/
 RUN npm install
 
 
-# ポート公開
-EXPOSE 3000
+# # ポート公開
+# EXPOSE 3000
 
-# 開発用の起動コマンド
-CMD ["npm", "run", "dev"]
+# # 開発用の起動コマンド
+# CMD ["npm", "run", "dev"]
