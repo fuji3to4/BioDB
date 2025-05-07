@@ -1,4 +1,6 @@
-public_html/MVP*
-public_html/examples*
+html/MVP*
+html/examples*
+
+my-app
 
 .vscode
