@@ -27,12 +27,13 @@ services:
       context: ./nextjs
     container_name: docker-nextjs
     volumes:
-      - ../my-app:/app:delegated
+      - ../my-app:/app
       - /app/node_modules  # node_modulesはコンテナ内のみで管理
       # - /app/.next
     ports:
       - "3000:3000"
     command: npm run dev
+    # command: tail -f /dev/null
     working_dir: /app
     environment:
       - WATCHPACK_POLLING=true

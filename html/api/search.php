@@ -1,13 +1,14 @@
 <?php
 header('Content-Type:text/html; charset=UTF-8');
 
-require('../login.php');
+require('../examples/login.php');
 header('Access-Control-Allow-Origin: http://localhost:3000');
 header('Access-Control-Allow-Methods: GET');
 header('Access-Control-Allow-Headers: Content-Type');
 
 
 $id = (isset($_GET['id']) && $_GET['id'] !== "") ? $_GET['id'] : "%";
+$method = (isset($_GET['method']) && $_GET['method'] !== "") ? $_GET['method'] : "%";
 $name = (isset($_GET['name']) && $_GET['name'] !== "") ? $_GET['name'] : "%";
 $class = (isset($_GET['class']) && $_GET['class'] !== "") ? $_GET['class'] : "%";
 $org = (isset($_GET['org']) && $_GET['org'] !== "") ? $_GET['org'] : "%";
@@ -30,6 +31,7 @@ FROM PDB
 NATURAL JOIN PDB2Protein 
 NATURAL JOIN Protein
 WHERE (PDB.pdbID LIKE :id)
+AND (PDB.method LIKE :method)
 AND (PDB.class LIKE :class) 
 AND (Protein.name LIKE :name) 
 AND (Protein.organism LIKE :org)
@@ -46,6 +48,7 @@ try {
         $stmh = $pdo->prepare($sql);
 
         $stmh->bindvalue(":id", "%{$id}%", PDO::PARAM_STR);
+        $stmh->bindvalue(":method", "%{$method}%", PDO::PARAM_STR);
         $stmh->bindvalue(":class", "%{$class}%", PDO::PARAM_STR);
         $stmh->bindvalue(":name", "%{$name}%", PDO::PARAM_STR);
         $stmh->bindvalue(":org", "%{$org}%", PDO::PARAM_STR);
