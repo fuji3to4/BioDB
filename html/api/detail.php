@@ -2,7 +2,7 @@
 <?php
 // api/detail.php
 header('Content-Type: application/json; charset=UTF-8');
-require('../examples/login.php');
+require('login.php');
 
 // CORSの設定 - 開発環境用
 header('Access-Control-Allow-Origin: http://localhost:3000');

@@ -10,5 +10,7 @@ character-set-server=utf8mb4
 #collation-server=utf8mb4_bin
 collation-server=utf8mb4_unicode_ci
 
+secure-file-priv = "/home/user/SQL"
+
 [client]
 default-character-set=utf8mb4

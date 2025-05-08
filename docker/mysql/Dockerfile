@@ -23,13 +23,12 @@ RUN rm -rf /var/log/mysql \
 RUN chmod 777 /var/log/mysql
 
 #初期の設定
-ARG UNAME=user
-ARG GNAME=user
+ENV UNAME=user
+ENV GNAME=user
 RUN groupadd $GNAME \
     && useradd -m -s /bin/bash -g $GNAME $UNAME
 
 WORKDIR /home/$UNAME/SQL
 USER $UNAME
 
-# 設定を確実に反映させるためのコマンド
 CMD ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
