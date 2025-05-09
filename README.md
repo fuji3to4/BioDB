@@ -1,6 +1,6 @@
 # BioDB
 
-バイオデータベース演習用DockerによるLAMP環境(mysql8.0-debian, php8.3.7-apache)
+バイオデータベース演習用DockerによるLAMP+Next.js環境(mysql:9.3.0, php:8.3.20-apache-bookworm, node:22.15.0-slim)
 
 ※演習用に便宜上セキュリティを甘く構築しているので一般用途には向きません。
 
@@ -20,9 +20,9 @@ CONTAINER ID   IMAGE          COMMAND                   CREATED          STATUS 
 ```
 
 ### PHP
-./BioDB/public_html/はdocker-phpの/home/user/public_html/と同期しています。
+./BioDB/public_html/はdocker-phpの/html(/var/www/html/)と同期しています。
 その中に作成したhtmlやphpに以下のようなURLによりアクセスできます。
-http://localhost/~user/sample.php
+http://localhost/sample.php
 
 ![image](https://github.com/fuji3to4/BioDB/assets/72539480/bb2f6935-a911-4499-8d68-999ded20f04c)
 
