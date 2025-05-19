@@ -2,6 +2,7 @@
 header('Content-Type:text/html; charset=UTF-8');
 
 require('login.php');
+// CORSの設定 - 開発環境用
 header('Access-Control-Allow-Origin: http://localhost:3000');
 header('Access-Control-Allow-Methods: GET');
 header('Access-Control-Allow-Headers: Content-Type');

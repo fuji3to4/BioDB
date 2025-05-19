@@ -1,4 +1,4 @@
-FROM mysql:9.3.0
+FROM --platform=linux/x86_64 mysql:9.3.0
 
 # 日本語環境構築
 RUN microdnf update -y \
