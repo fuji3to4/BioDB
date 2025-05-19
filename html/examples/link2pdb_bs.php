@@ -16,7 +16,7 @@ header('Content-Type:text/html; charset=UTF-8');
 require('login.php');
 
 
-$pdbID = (isset($_GET['id']) && $_GET['id'] !== "") ? $_GET['id'] : "%";
+$pdbID = (isset($_GET['pdbID']) && $_GET['pdbID'] !== "") ? $_GET['pdbID'] : "%";
 
 
 $sql = "
@@ -74,7 +74,7 @@ print " &Aring;</li></ul>";
 ?>
 </div>
 <div class="col-6">
-<img class="img-fluid" src="<?=$result[0]["pdbID"]?>.jpg">
+<img class="img-fluid" src="./pic/<?=$result[0]["pdbID"]?>.jpeg">
 </div>
 </div>
 
