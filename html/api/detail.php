@@ -10,9 +10,9 @@ header('Access-Control-Allow-Methods: GET');
 header('Access-Control-Allow-Headers: Content-Type');
 
 // PDB IDの取得と検証
-$id = (isset($_GET['id']) && $_GET['id'] !== "") ? $_GET['id'] : "%";
+$pdbID = (isset($_GET['pdbID']) && $_GET['pdbID'] !== "") ? $_GET['pdbID'] : "%";
 
-if (!$id) {
+if (!$pdbID) {
     http_response_code(400);
     echo json_encode([
         'status' => 'error',
@@ -42,7 +42,7 @@ WHERE PDB.pdbID = :id
 
 try {
     $stmh = $pdo->prepare($sql);
-    $stmh->bindValue(":id", $id, PDO::PARAM_STR);
+    $stmh->bindValue(":id", $pdbID, PDO::PARAM_STR);
     $stmh->execute();
     
     $result = $stmh->fetch(PDO::FETCH_ASSOC);

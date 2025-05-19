@@ -53,7 +53,7 @@ export function ResultTable({ data }: { data: DataItems[] }) {
   useEffect(() => {
     const handleDetail = async (id: string) => {
       try {
-        const response = await fetch(`http://localhost/api/detail.php?id=${id}`);
+        const response = await fetch(`http://localhost/api/detail.php?pdbID=${id}`);
         const data = await response.json();
         if (data.status === 'success') {
           setDetails(data.data);
