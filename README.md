@@ -20,7 +20,7 @@ CONTAINER ID   IMAGE          COMMAND                   CREATED          STATUS 
 ```
 
 ### PHP
-./BioDB/public_html/はdocker-phpの/html(/var/www/html/)と同期しています。
+./BioDB/html/はdocker-phpの/html(/var/www/html/)と同期しています。
 その中に作成したhtmlやphpに以下のようなURLによりアクセスできます。
 http://localhost/sample.php
 
