@@ -29,7 +29,7 @@ services:
     volumes:
       - ../my-app:/app
       - /app/node_modules  # node_modulesはコンテナ内のみで管理
-      # - /app/.next
+      - /app/.next
     ports:
       - "3000:3000"
     command: npm run dev
